@@ -1,0 +1,240 @@
+
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:ABC Computing	 CUSTOMER NUMBER:1236PREVIOUS BALANCE:$345.89
+Trans_Number         9891
+Item              Payment
+Price           $-1000.00
+Quantity                0
+Name: 0, dtype: objectTrans_Number        9743
+Item             Payment
+Price           $-422.00
+Quantity               0
+Name: 1, dtype: objectTrans_Number                           9244
+Item            Dell Inspiron 3583 Notebook
+Price                               $539.99
+Quantity                                  5
+Name: 2, dtype: objectTrans_Number                                          9638
+Item            Dell UltraSharp U2419H Full HD 1920 x 1080
+Price                                              $189.99
+Quantity                                                 3
+Name: 3, dtype: objectTrans_Number                                                 9822
+Item            SAMSUNG 398 Series C27F398 27" Full HD 1920 x ...
+Price                                                     $179.99
+Quantity                                                        4
+Name: 4, dtype: object
+				BALANCE DUE: $2,913.77
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Games and Gadgets	 CUSTOMER NUMBER:1301PREVIOUS BALANCE:$13,670.15
+Trans_Number         9622
+Item              Payment
+Price           $-1200.00
+Quantity                0
+Name: 5, dtype: objectTrans_Number                                      9477
+Item            ASUS VivoBook 15 Thin and Light Laptop
+Price                                          $659.99
+Quantity                                             3
+Name: 6, dtype: objectTrans_Number        9688
+Item             Payment
+Price           $-300.00
+Quantity               0
+Name: 7, dtype: objectTrans_Number                              9360
+Item            Lenovo 100e Chromebook 2nd Gen
+Price                                  $119.99
+Quantity                                     9
+Name: 8, dtype: objectTrans_Number                                              9930
+Item            Intel Core i9-9820X Skylake X 10-Core 3.3 GHz 
+Price                                                  $599.99
+Quantity                                                     8
+Name: 9, dtype: object
+				BALANCE DUE: $20,029.95
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Max's Mobile	 CUSTOMER NUMBER:1349PREVIOUS BALANCE:$805.65
+Trans_Number        9502
+Item             Payment
+Price           $-875.70
+Quantity               0
+Name: 10, dtype: objectTrans_Number                                                 9317
+Item            ASUS AMD AM4 ROG Strix X570-E Gaming ATX Mothe...
+Price                                                     $299.99
+Quantity                                                        1
+Name: 11, dtype: objectTrans_Number                                                 9451
+Item            SanDisk 128GB Ultra Flair CZ73 USB 3.0 Flash D...
+Price                                                      $17.65
+Quantity                                                       24
+Name: 12, dtype: objectTrans_Number                                      9750
+Item            GeForce RTX 2070 SUPER XC ULTRA GAMING
+Price                                          $549.99
+Quantity                                             5
+Name: 13, dtype: objectTrans_Number                                                 9977
+Item            Seasonic PRIME Ultra 550W 80+ Platinum Power S...
+Price                                                     $121.99
+Quantity                                                        3
+Name: 14, dtype: object
+				BALANCE DUE: $3,769.46
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Techaholic	 CUSTOMER NUMBER:1380PREVIOUS BALANCE:$1,500.32
+Trans_Number        9010
+Item             Payment
+Price           $-750.45
+Quantity               0
+Name: 15, dtype: objectTrans_Number                                                 9317
+Item            Creative Sound Blaster Zx 116dB PCIe Gaming So...
+Price                                                     $149.99
+Quantity                                                        9
+Name: 16, dtype: objectTrans_Number                                              9970
+Item            ASUS - Gaming Desktop PC - Intel Core i5-9400F
+Price                                                  $815.99
+Quantity                                                     4
+Name: 17, dtype: objectTrans_Number                               9989
+Item            DELL Laptop XPS XPS9370-7040SLV
+Price                                  $1889.99
+Quantity                                      1
+Name: 18, dtype: object
+				BALANCE DUE: $7,253.73
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Wired	 CUSTOMER NUMBER:1522PREVIOUS BALANCE:$1,298.75
+Trans_Number                                    9487
+Item            Intel Core i9-9900K 8-Core processor
+Price                                        $524.99
+Quantity                                           4
+Name: 19, dtype: objectTrans_Number        9884
+Item             Payment
+Price           $-500.00
+Quantity               0
+Name: 20, dtype: objectTrans_Number                           9109
+Item            Dell Inspiron 3583 Notebook
+Price                               $539.99
+Quantity                                  2
+Name: 21, dtype: objectTrans_Number                                          9577
+Item            Dell UltraSharp U2419H Full HD 1920 x 1080
+Price                                              $189.99
+Quantity                                                 5
+Name: 22, dtype: objectTrans_Number                                                 9296
+Item            SAMSUNG 398 Series C27F398 27" Full HD 1920 x ...
+Price                                                     $179.99
+Quantity                                                        2
+Name: 23, dtype: object
+				BALANCE DUE: $5,288.62
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Tech Inc	 CUSTOMER NUMBER:1546PREVIOUS BALANCE:$1,898.99
+Trans_Number        9628
+Item             Payment
+Price           $-100.00
+Quantity               0
+Name: 24, dtype: objectTrans_Number                                      9715
+Item            ASUS VivoBook 15 Thin and Light Laptop
+Price                                          $659.99
+Quantity                                             6
+Name: 25, dtype: objectTrans_Number        9769
+Item             Payment
+Price           $-250.00
+Quantity               0
+Name: 26, dtype: objectTrans_Number                              9580
+Item            Lenovo 100e Chromebook 2nd Gen
+Price                                  $119.99
+Quantity                                     1
+Name: 27, dtype: objectTrans_Number                                              9438
+Item            Intel Core i9-9820X Skylake X 10-Core 3.3 GHz 
+Price                                                  $599.99
+Quantity                                                     8
+Name: 28, dtype: object
+				BALANCE DUE: $10,428.84
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Fast Fix	 CUSTOMER NUMBER:1626PREVIOUS BALANCE:$0.00
+Trans_Number                                                 9611
+Item            Creative Sound Blaster Zx 116dB PCIe Gaming So...
+Price                                                     $149.99
+Quantity                                                        5
+Name: 29, dtype: objectTrans_Number                                                 9660
+Item            Seasonic PRIME Ultra 550W 80+ Platinum Power S...
+Price                                                     $121.99
+Quantity                                                        6
+Name: 30, dtype: objectTrans_Number        9546
+Item             Payment
+Price           $-500.00
+Quantity               0
+Name: 31, dtype: objectTrans_Number                                                 9557
+Item            Creative Sound Blaster Zx 116dB PCIe Gaming So...
+Price                                                     $149.99
+Quantity                                                        9
+Name: 32, dtype: objectTrans_Number                                              9876
+Item            ASUS - Gaming Desktop PC - Intel Core i5-9400F
+Price                                                  $815.99
+Quantity                                                     2
+Name: 33, dtype: objectTrans_Number                               9653
+Item            DELL Laptop XPS XPS9370-7040SLV
+Price                                  $1889.99
+Quantity                                      2
+Name: 34, dtype: object
+				BALANCE DUE: $7,743.76
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Dollar Devices	 CUSTOMER NUMBER:1711PREVIOUS BALANCE:$1,494.10
+Trans_Number        9875
+Item             Payment
+Price           $-870.00
+Quantity               0
+Name: 35, dtype: objectTrans_Number                              9405
+Item            Lenovo 100e Chromebook 2nd Gen
+Price                                  $119.99
+Quantity                                    10
+Name: 36, dtype: objectTrans_Number                                              9142
+Item            Intel Core i9-9820X Skylake X 10-Core 3.3 GHz 
+Price                                                  $599.99
+Quantity                                                     5
+Name: 37, dtype: objectTrans_Number                                                 9241
+Item            Intel Z390 SATA 6Gb USB 3.1 ATX Intel Motherboard
+Price                                                     $125.99
+Quantity                                                        1
+Name: 38, dtype: object
+				BALANCE DUE: $4,949.94
+Please remit payment at your earliest convenience. 
+Thank you.
+
+--------------------------------------------------------  ***** CUSTOMER INVOICE ***** CUSTOMER INVOICE ***** --------------------------------------------------------
+CUSTOMER NAME:Best Buy	 CUSTOMER NUMBER:1808PREVIOUS BALANCE:$650.00
+Trans_Number         9711
+Item              Payment
+Price           $-3000.00
+Quantity                0
+Name: 39, dtype: objectTrans_Number                                                 9045
+Item            ASUS AMD AM4 ROG Strix X570-E Gaming ATX Mothe...
+Price                                                     $299.99
+Quantity                                                        3
+Name: 40, dtype: objectTrans_Number                                                 9636
+Item            SanDisk 128GB Ultra Flair CZ73 USB 3.0 Flash D...
+Price                                                      $17.65
+Quantity                                                       50
+Name: 41, dtype: objectTrans_Number                                      9432
+Item            GeForce RTX 2070 SUPER XC ULTRA GAMING
+Price                                          $549.99
+Quantity                                             7
+Name: 42, dtype: objectTrans_Number                                                 9319
+Item            Seasonic PRIME Ultra 550W 80+ Platinum Power S...
+Price                                                     $121.99
+Quantity                                                        4
+Name: 43, dtype: object
+				BALANCE DUE: $3,770.36
+Please remit payment at your earliest convenience. 
+Thank you.
