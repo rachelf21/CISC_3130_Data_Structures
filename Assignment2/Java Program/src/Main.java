@@ -1,3 +1,5 @@
+//Rachel Friedman | Data Structures 3130 | Assignment 2 | February 19, 2020
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.text.NumberFormat;
@@ -9,10 +11,8 @@ public class Main {
 
 	final double[] prices = { 2, 7, 8.5 };
 	double[] amounts = { 0, 0, 0 };
-	NumberFormat nf = NumberFormat.getCurrencyInstance();
 	ArrayList<Warehouse> warehouses = new ArrayList<Warehouse>();
 	HashMap<String,Warehouse> map = new HashMap<>();
-	String searchResult = "";
 
 	public static void main(String[] args) {
 		Main m = new Main();
@@ -22,6 +22,8 @@ public class Main {
 
 //////////////////////////////*READFILE*///////////////////////////////	
 	public void readFile(String filename) {
+			NumberFormat nf = NumberFormat.getCurrencyInstance();
+
 		int count = 0;
 		try {
 			Scanner data = new Scanner(new File(filename));
@@ -88,7 +90,7 @@ public class Main {
 //////////////////SEARCH WAREHOUSES*****************************
 	public boolean searchWarehouse(Warehouse w1, int itemNumber, int itemsShort) {
 		//Warehouse w2;
-		searchResult = "";
+		String searchResult = "";
 		int amount = itemsShort;
 		int max = w1.getItem(itemNumber);
 		int pos = getWarehouse(w1.getwarehouseCity());
@@ -148,4 +150,3 @@ public class Main {
 		}
 	}
 }
-//testing
