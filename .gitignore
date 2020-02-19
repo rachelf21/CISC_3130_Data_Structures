@@ -1,4 +1,7 @@
-ipython.html
+.ipython.html
+*/.ipython.html
+**/*.ipython.html
+
 
 .ipynb_checkpoints
 */.ipynb_checkpoints/*
