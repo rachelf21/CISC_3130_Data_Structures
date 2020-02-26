@@ -1,0 +1,44 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Debug (Launch)",
+            "request": "launch",
+            "mainClass": "",
+            "shortenCommandLine" :"argfile"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch) - Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "shortenCommandLine" :"argfile"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-Main<Data Structures 3130_503f4877>",
+            "request": "launch",
+            "mainClass": "Main",
+            "projectName": "Data Structures 3130_503f4877"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-factorial<Data Structures 3130_503f4877>",
+            "request": "launch",
+            "mainClass": "factorial",
+            "projectName": "Data Structures 3130_503f4877"
+        },
+        {
+            "type": "java",
+            "name": "Debug (Launch)-recursion2<Data Structures 3130_503f4877>",
+            "request": "launch",
+            "mainClass": "recursion2",
+            "shortenCommandLine": "none",
+            "projectName": "Data Structures 3130_503f4877"
+        }
+    ]
+}
