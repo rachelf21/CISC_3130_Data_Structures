@@ -53,11 +53,11 @@ public class recursion2 {
     // }
     // }
 
-    public static void printArray(final int[] num) {
+    public static void printArray(int[] num) {
         int len = num.length - 1;
         int x = num[len]; // x=1
-        if (x < len) {
-            final int j = num[x - 1];
+        if (x < len && x>0) {
+            int j = num[x - 1];
             if (num[x - 1] > 1) {
                 num[x - 1] = num[x - 1] - 1;
                 final int[] numbers1 = new int[len + 1];
@@ -78,7 +78,8 @@ public class recursion2 {
             printArray(numbers2);
         }
         if (x == len) {
-            final int j = num[len - 1];
+            System.out.println("in here");
+            int j = num[len - 1];
             if (num[len - 1] > 0) {
                 num[len - 1] = num[len - 1] - 1;
                 final int[] numbers3 = new int[len+1];
@@ -98,49 +99,62 @@ public class recursion2 {
     }
 
     public static void basic_recursion(final int[] num) {
+        int len = num.length;
+        int last_pos=len-1;
         if (num[3] == 1) {
-            final int j = num[0];
-            if (num[0] > 1) {
-                num[0] = num[0] - 1;
-                final int[] numbers1 = new int[4];
+            int j = num[num[last_pos]-1];
+            if (j > 1) {
+                num[0] = j - 1;
+                int[] numbers1 = new int[4];
                 for (int i = 0; i < 3; i++) {
                     numbers1[i] = num[i];
                 }
-                numbers1[3] = 1;
-                // int[] numbers1 = { num[0], num[1], num[2], 1 };
+                numbers1[last_pos] = 1;
                 basic_recursion(numbers1);
             }
             num[0] = j;
-            final int[] numbers2 = new int[4];
+            int[] numbers2 = new int[4];
             for (int i = 0; i < 3; i++) {
                 numbers2[i] = num[i];
             }
             numbers2[3] = 2;
-            // numbers2 = { num[0], num[1], num[2], 2 };
             basic_recursion(numbers2);
         }
 
         if (num[3] == 2) {
-            final int j = num[1];
+           int j = num[num[last_pos]-1];
+            //int j = num[1];
             if (num[1] > 1) {
                 num[1] = num[1] - 1;
-                final int[] numbers3 = { num[0], num[1], num[2], 2 };
+                int[] numbers3 = new int[4];
+                for(int i = 0; i<3; i++){
+                    numbers3[i]=num[i];
+                }
+                numbers3[3] = 2;
                 basic_recursion(numbers3);
             }
             num[1] = j;
-            final int[] numbers4 = { num[0], num[1], num[2], 3 };
+            int[] numbers4 = new int[4];
+            for (int i = 0; i < 3; i++) {
+                numbers4[i] = num[i];
+            }
+            numbers4[3] = 3;
             basic_recursion(numbers4);
 
         }
         if (num[3] == 3) {
-            final int j = num[2];
-            if (num[2] > 0) {
+           int j = num[num[last_pos]-1];
+            if (num[2] >1) {
                 num[2] = num[2] - 1;
-                final int[] numbers5 = { num[0], num[1], num[2], 3 };
-                basic_recursion(numbers5);
+                int[] numbers5 = new int[4];
+                for (int i = 0; i < 3; i++) {
+                    numbers5[i] = num[i];
+                } 
+                numbers5[3] = 3;  
+                basic_recursion(numbers5);               
+            }
                 num[2] = j;
                 System.out.println(num[0] + "-" + num[1] + "-" + num[2]);
-            }
         }
     }
 
@@ -166,45 +180,11 @@ public class recursion2 {
     }
 
     public static void main(final String[] args) {
-        // int num = 10;
-        // System.out.println("Factorial of " + num + " is " + fact(num));
-        // int num2=0;
-        // num2 = 7;
-        // System.out.println("Fibonacci number of " + num2 + " is " + fib(num2));
-
-        recursive_a(3, 2, 3);
+        recursive_a( 3, 1, 2);
         System.out.println("----");
-        final int[] numbers = { 3, 2, 3, 1 };
+        final int[] numbers = { 3, 1, 2, 1 };
         //printArray(numbers);
-        //basic_recursion(numbers);
-        // recursive(2, 2, 2);
+        basic_recursion(numbers);
+        //recursive(3, 2, 3);
     }
-
-    public static int fact(final int n) {
-        int x, y;
-        if (n == 1)
-            return 1;
-        x = n - 1;
-        y = fact(x);
-        return n * y;
-    }
-
-    public static int mult(final int x, final int y) {
-        if (y == 1) {
-            return x;
-        }
-        final int c = y - 1;
-        final int d = mult(x, c);
-        return (d + x);
-    }
-
-    public static int fib(final int n) {
-        int x, y;
-        if (n <= 1)
-            return n;
-        x = fib(n - 1);
-        y = fib(n - 2);
-        return (x + y);
-    }
-
 }
