@@ -1,116 +1,135 @@
+//Rachel Friedman | Data Structures 3130 | Assignment 3 | February 27, 2020
+
 import java.text.NumberFormat;
 import java.util.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 
 public class Main {
-    NumberFormat nf = NumberFormat.getCurrencyInstance();
-    int qty = 0;
-    double markup = .3;
-    double cost = 0;
-    int sell=0;
-    double discount = .25;
+    static double discount = 0;
     static boolean promotion = false;
     static int count = 0;
-    LinkedList<Widget> ll = new LinkedList<Widget>();
+    LinkedList<Widget> widgets = new LinkedList<Widget>();
 
     public static void main(String[] args) {
-        Main widgets = new Main();
-        widgets.readFile("data.csv");
-        // widgets.ll.add(new Widget(10, 1));
-        // widgets.ll.add(new Widget(15, 2));
-        // widgets.ll.add(new Widget(40, 1));
-        // System.out.println("Size now: " + widgets.ll.size());
-        // set_discount();
-        // widgets.sell_widgets(5, promotion);
-        // System.out.println("\nNEW ORDER");
-        // widgets.sell_widgets(10, promotion);
-        // widgets.sell_widgets(5, promotion);
-        // set_discount();
-        // widgets.sell_widgets(2, promotion);
-        // widgets.sell_widgets(5, promotion);
-        // widgets.sell_widgets(1, promotion);
-
-        System.out.println("new size of list is " + widgets.ll.size());     
+        Main main = new Main();
+        System.out.println("XYZ WIDGET STORE RECORDS\n");
+        main.readData("data.csv");
+        main.printList();
     }
 
-///**** READFILE *///////////////////////////////////////////////////////////
-    public void readFile(String filename){
-        try{
+    // -----------------READ DATA----------------------------------//
+    public void readData(String filename) {
+        int salesNumber = 1;
+        try {
             Scanner data = new Scanner(new File(filename));
-            while(data.hasNext()){
+            while (data.hasNext()) {
                 String[] line = data.nextLine().split(",");
-                if (line[0].equals("S")){
-                    Widget w = new Widget(Integer.parseInt(line[1]), Integer.parseInt(line[2]));
-                    ll.add(w);
+                if (line[0].equals("R")) {
+                    Widget w = new Widget(Integer.parseInt(line[1]), Double.parseDouble(line[2]));
+                    widgets.add(w);
                     System.out.println();
                     w.display();
-                }
-                else if (line[0].equals("R")){
-                    sell++;
-                    System.out.println("\nSales No: " + sell);
-                    sell_widgets(ll,Integer.parseInt(line[1]),promotion);
-                }
-                else if(line[0].equals("D")){
-                    set_discount();
-                }
-                else
-                    System.out.println("Improper card number");      
+                } else if (line[0].equals("P")) {
+                    activateDiscount(Double.parseDouble(line[1]));
+                } else if (line[0].equals("S")) {
+                    System.out.print("\nSales Order #" + salesNumber++);
+                    System.out.println(" for " + Integer.parseInt(line[1]) + " widgets:");
+                    sellWidgets(widgets, Integer.parseInt(line[1]), promotion);
+                } else
+                    System.out.println("Invalid card number");
             }
-        }
-        catch(FileNotFoundException e){
+        } catch (FileNotFoundException e) {
             System.out.println("Missing file " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.out.println("invalid number");
+        } catch (Exception e) {
+            System.out.println("An error has occured " + e.getMessage());
         }
     }
- ///**** SET DISCOUNT *///////////////////////////////////////////////////////////
-    public static void set_discount() {
-        promotion = true;
-        count = 0;
-        System.out.println("\n**Promotion has been activated for next two orders.**\n");
-    }
- ///****SELL WIDGETS *///////////////////////////////////////////////////////////
-    public void sell_widgets(LinkedList<Widget> ll, int amount, boolean promotion) {
-        int originalAmount = amount;
-        double widget_markup = 0;
-        double total = 0;
-        
-        Iterator<Widget> itr = ll.listIterator();
-        while (itr.hasNext()) {
+
+    // -----------------SELL WIDGETS----------------------------------//
+    public void sellWidgets(LinkedList<Widget> widgets, int amount, boolean cardPromotion) {
+        NumberFormat nf = NumberFormat.getCurrencyInstance();
+        NumberFormat pf = NumberFormat.getPercentInstance();
+        int originalAmount = amount; // if remains unchanged, order was completely unfulfilled
+        double customerPrice = 0;
+        int qty = 0; // to represent quantity in particular widget shipment
+        double markup = .3;
+        double cost = 0; // per widget shipment
+        double total = 0; // represents total order
+
+        Iterator<Widget> itr = widgets.listIterator();
+        while (itr.hasNext() && amount > 0) {
             Widget w = itr.next();
-            qty = w.get_quantity();
-            if (qty >= amount) {
-                w.update_quantity(qty - amount);
-                widget_markup = markup * (w.get_price() * amount);
-                cost = w.get_price() * amount + widget_markup;
+            qty = w.getQuantity();
+            customerPrice = (markup * w.getPrice()) + w.getPrice();
+
+            if (qty >= amount) { // if shipment contains enough to fill order
+                w.updateQuantity(qty - amount); // reduce that shipment's inventory by this amount
+                cost = amount * customerPrice;
                 total = total + cost;
-                System.out.println(amount +" items for total of: " + nf.format(cost));
+                System.out.println(
+                        amount + " widgets at " + nf.format(customerPrice) + " each  Sales: " + nf.format(cost));
                 amount = amount - qty;
-                if(amount==0){
+                if (amount == 0) {
                     itr.remove();
                 }
-                break;
-            } else { // if there isn't enought, remove whatever we have'
-                amount = amount - qty; //amount = 15-10 = 5
-                widget_markup = markup * (w.get_price() * qty);
-                cost = w.get_price() * qty + widget_markup;
+                break; // if sold all items, break out of iteration
+
+            } else { // if there isn't enought, sell whatever is currently in stock, then adjust the
+                     // amount accordingly. Still iterating the list, but now with new amount.
+                amount = amount - qty;
+                cost = qty * customerPrice;
                 total = total + cost;
-                System.out.println(amount +" itemss for total of: " + nf.format(cost));
+                System.out
+                        .println(qty + " widgets at " + nf.format(customerPrice) + " each  Sales: " + nf.format(cost));
                 itr.remove();
             }
         }
         if (amount == originalAmount) {
-            System.out.println("None of your order was completed. So sorry :( ");
-        }
-        else {
-            if (promotion && count < 2) {
-                System.out.println("Promotional discount of 25% has been applied.");
+            System.out.println("Unfortunately, we are completely sold out at this time. ");
+        } else {
+            if (cardPromotion) {
+                System.out.println("Promotional discount of " + pf.format(discount) + " has been applied.");
                 count++;
                 total = total - (discount * total);
+                if (count > 1)
+                    deactivateDiscount();
             }
-            if (amount > 0){
-                System.out.println("Sorry, we were short of " + amount + " widgets");
+            if (amount > 0) {
+                System.out.println("Unfortunately, " + amount + " widgets are currently unavailable.");
             }
         }
-        System.out.println("TOTAL BILL: " + nf.format(total));
+        System.out.println("\t\t\tTOTAL SALES: " + nf.format(total));
     }
-}//Main
+
+    // -----------------ACTIVATE DISCOUNT----------------------------------//
+    public static void activateDiscount(double value) {
+        promotion = true;
+        discount = value;
+        count = 0;
+        System.out.println("\n**Promotion has been activated for next two orders.**");
+    }
+
+    // -----------------DEACTIVATE DISCOUNT----------------------------------//
+    public static void deactivateDiscount() {
+        promotion = false;
+        discount = 0;
+        count = 0;
+    }
+
+    // -----------------PRINT LIST----------------------------------//
+    public void printList() {
+        Iterator<Widget> itr = widgets.listIterator();
+        System.out.println("\n---------------------------------------");
+        System.out.println("\tXYZ WIDGET STORE\nWidgets currently in stock:");
+        while (itr.hasNext()) {
+            Widget w = itr.next();
+            w.display();
+        }
+        System.out.println("---------------------------------------");
+
+    }
+
+}// Main

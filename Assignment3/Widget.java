@@ -1,40 +1,41 @@
+//Rachel Friedman | Data Structures 3130 | Assignment 3 | February 27, 2020
+
 import java.text.NumberFormat;
 
 public class Widget {
-    public int quantity;
-    public Widget next;
     public static int auto_id = 0;
-    public int widget_id;
+    public int quantity;
+    // public Widget next;
+    public int widgetID;
     public double price;
 
     public Widget(int quantity, double price) {
         auto_id++;
-        this.widget_id = auto_id;
+        this.widgetID = auto_id;
         this.quantity = quantity;
         this.price = price;
     }
 
     public void display() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
-        System.out.println(
-                "Shipment " + widget_id + " Received " + quantity + " widgets at " + nf.format(price) + " per widget.");
+        System.out.println("Shipment " + widgetID + "| " + quantity + " widgets at " + nf.format(price) + " each");
     }
 
-    public int get_quantity() {
+    public int getQuantity() {
         return quantity;
     }
 
-    public void update_quantity(int new_quantity) {
+    public void updateQuantity(int new_quantity) {
         this.quantity = new_quantity;
     }
 
-    public double get_price() {
+    public double getPrice() {
         return price;
     }
 
     public String toString() {
         NumberFormat nf = NumberFormat.getCurrencyInstance();
-        return "Widget Shipment " + widget_id + " | Quantity " + quantity + " | Price " + nf.format(price);
+        return "Shipment " + widgetID + " | Quantity " + quantity + " | Price " + nf.format(price);
     }
     // public static void main(String[] args) {
     // LinkList shipment = new LinkList();
