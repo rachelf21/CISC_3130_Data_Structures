@@ -1,163 +1,55 @@
 public class recursion2 {
 
-    public static void recursive(final int a, final int b, final int c) {
-        if (a > 0) {
-            recursive(a - 1, b, c);
-            if (b > 0) {
-                recursive(a, b - 1, c);
-                if (c > 0) {
-                    recursive(a, b, c - 1);
-                    System.out.println(a + "-" + b + "-" + c);
-                }
-            }
-        }
-    }
-
-    // public static void printArray(final int[] num) {
-    // final int last = num[num.length - 1]; // last=1,then equal to 2
-    // System.out.println("length of num is " + num.length);
-    // for (int i = 1; i < 4; i++) { // 0,1,2
-    // int j = num[last - 1]; // num[0]=a=3, then num[1]=b=2
-    // if (num[last - 1] > 1) {
-    // num[last - 1] = num[last - 1] - 1; // reduce num[0],a,3, by 1
-    // final int[] numbers1 = new int[4]; // create a new array of numbers
-    // for (int k = 0; k < 3; k++) {
-    // numbers1[k] = num[k]; // initializing it with same values, except for first
-    // pos reduced by 1
+    // //This does not work
+    // public static void recursive(final int a, final int b, final int c) {
+    //     if (a > 0) {
+    //         recursive(a - 1, b, c);
+    //         if (b > 0) {
+    //             recursive(a, b - 1, c);
+    //             if (c > 0) {
+    //                 recursive(a, b, c - 1);
+    //                 System.out.println(a + "-" + b + "-" + c);
+    //             }
+    //         }
+    //     }
     // }
-    // numbers1[3] = i; // last position remains 1
-    // printArray(numbers1); // calling function with one less
-    // }
-    // num[last - 1] = j; // first pos goes back to being 3 again (without the minus
-    // 1)
-    // final int[] numbers2 = new int[4]; // now resetting the array to what it was
-    // before, so can call function
-    // // without minus one
-    // for (int k = 0; k < 3; k++) {
-    // numbers2[k] = num[k];
-    // }
-
-    // numbers2[3] = i + 1;
-    // printArray(numbers2);
-
-    // if (numbers2[3] == 3) {
-    // j = num[2];
-    // if (num[2] > 0) {
-    // num[2] = num[2] - 1;
-    // final int[] numbers5 = { num[0], num[1], num[2], 3 };
-    // printArray(numbers5);
-    // num[2] = j;
-    // System.out.println(num[0] + "-" + num[1] + "-" + num[2]);
-    // }
-    // }
-    // }
-    // }
-
-    public static void printArray(int[] num) {
-        int len = num.length - 1;
-        int x = num[len]; // x=1
-        if (x < len && x>0) {
-            int j = num[x - 1];
-            if (num[x - 1] > 1) {
-                num[x - 1] = num[x - 1] - 1;
-                final int[] numbers1 = new int[len + 1];
-                for (int i = 0; i < len; i++) {
-                    numbers1[i] = num[i];
-                }
-                numbers1[len] = x;
-                // int[] numbers1 = { num[0], num[1], num[2], 1 };
-                printArray(numbers1);
-            }
-            num[x - 1] = j;
-            final int[] numbers2 = new int[len + 1];
-            for (int i = 0; i < len; i++) {
-                numbers2[i] = num[i];
-            }
-            numbers2[len] = x + 1;
-            // numbers2 = { num[0], num[1], num[2], 2 };
-            printArray(numbers2);
-        }
-        if (x == len) {
-            System.out.println("in here");
-            int j = num[len - 1];
-            if (num[len - 1] > 0) {
-                num[len - 1] = num[len - 1] - 1;
-                final int[] numbers3 = new int[len+1];
-                for (int i = 0; i < len; i++) {
-                    numbers3[i] = num[i];
-                }
-                printArray(numbers3);
-
-                num[len - 1] = j;
-                final int[] numbers4 = new int[len];
-                for (int i = 0; i < len-1; i++) {
-                    numbers4[i] = num[i];
-                }
-                System.out.println(numbers4);
-            }
-        }
-    }
 
     public static void basic_recursion(final int[] num) {
         int len = num.length;
         int last_pos=len-1;
-        if (num[3] == 1) {
-            int j = num[num[last_pos]-1];
-            if (j > 1) {
-                num[0] = j - 1;
-                int[] numbers1 = new int[4];
-                for (int i = 0; i < 3; i++) {
-                    numbers1[i] = num[i];
-                }
-                numbers1[last_pos] = 1;
-                basic_recursion(numbers1);
+        int count = num[last_pos];
+        int j = num[num[last_pos]-1];
+
+        if (j > 1) {
+            num[num[last_pos]-1] = j - 1;
+            int[] numbers1 = new int[len];
+            for (int i = 0; i < last_pos; i++) {
+                numbers1[i] = num[i];
             }
-            num[0] = j;
-            int[] numbers2 = new int[4];
-            for (int i = 0; i < 3; i++) {
+            numbers1[last_pos] = count;
+            basic_recursion(numbers1);
+        }
+        num[num[last_pos]-1] = j;
+
+        if(num[last_pos] != last_pos) {
+            int[] numbers2 = new int[len];
+            for (int i = 0; i < last_pos; i++) {
                 numbers2[i] = num[i];
             }
-            numbers2[3] = 2;
+            numbers2[last_pos] = ++count;
             basic_recursion(numbers2);
         }
-
-        if (num[3] == 2) {
-           int j = num[num[last_pos]-1];
-            //int j = num[1];
-            if (num[1] > 1) {
-                num[1] = num[1] - 1;
-                int[] numbers3 = new int[4];
-                for(int i = 0; i<3; i++){
-                    numbers3[i]=num[i];
-                }
-                numbers3[3] = 2;
-                basic_recursion(numbers3);
+        else{
+            num[last_pos-1] = j;
+            int[] numbers_final=new int[len-1];
+            for (int i = 0; i < last_pos; i++) {
+                numbers_final[i] = num[i];
+                System.out.print(numbers_final[i]);
             }
-            num[1] = j;
-            int[] numbers4 = new int[4];
-            for (int i = 0; i < 3; i++) {
-                numbers4[i] = num[i];
-            }
-            numbers4[3] = 3;
-            basic_recursion(numbers4);
-
+            System.out.println();
         }
-        if (num[3] == 3) {
-           int j = num[num[last_pos]-1];
-            if (num[2] >1) {
-                num[2] = num[2] - 1;
-                int[] numbers5 = new int[4];
-                for (int i = 0; i < 3; i++) {
-                    numbers5[i] = num[i];
-                } 
-                numbers5[3] = 3;  
-                basic_recursion(numbers5);               
-            }
-                num[2] = j;
-                System.out.println(num[0] + "-" + num[1] + "-" + num[2]);
-        }
-    }
-
+    }       
+    
     public static void recursive_a(final int a, final int b, final int c) {
         if (a > 0) {
             recursive_a(a - 1, b, c);
@@ -180,11 +72,11 @@ public class recursion2 {
     }
 
     public static void main(final String[] args) {
-        recursive_a( 3, 1, 2);
-        System.out.println("----");
-        final int[] numbers = { 3, 1, 2, 1 };
-        //printArray(numbers);
+        recursive_a(2, 1, 3);  //Using 3 different recursive functions.
+        System.out.println("-----");
+        final int[] numbers = {2, 1, 3, 1};  //Using 1 recursive function, which automatically calculates the appropriate depth, 
+        //based on the last value in the array that is passed. In other words, this example is a 3 dimensional array (2x1x3)that is 
+        //passed, where the last digit (1) is not a part of the actual array itself.
         basic_recursion(numbers);
-        //recursive(3, 2, 3);
     }
 }
